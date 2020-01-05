@@ -2,12 +2,12 @@ import React from 'react'
 import Layout from '../components/layout/Layout';
 
 
-const Nosotros = () => (
+const Buscar = () => (
   <div>
     <Layout>
-      <h1>Nosotros</h1>
+      <h1>Buscar</h1>
     </Layout>
   </div>
 )
 
-export default Nosotros
+export default Buscar

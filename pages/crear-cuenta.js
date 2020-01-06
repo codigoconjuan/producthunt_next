@@ -3,6 +3,8 @@ import { css } from '@emotion/core';
 import Layout from '../components/layout/Layout';
 import { Formulario, Campo, InputSubmit, Error } from '../components/ui/Formulario';
 
+import firebase from '../firebase';
+
 // validaciones
 import useValidacion from '../hooks/useValidacion';
 import validarCrearCuenta from '../validacion/validarCrearCuenta';
@@ -19,8 +21,13 @@ const CrearCuenta = () => {
 
   const { nombre, email, password } = valores;
 
-  function crearCuenta() {
-    console.log('Creando cuenta...');
+  async function crearCuenta() {
+    try {
+      await firebase.registrar(nombre, email, password);
+
+    } catch (error) {
+      console.error('Hubo un error al crear el usuario ', error.message);
+    }
   }
 
 
